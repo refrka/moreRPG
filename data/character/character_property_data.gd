@@ -29,8 +29,20 @@ var data = {
 
 
 	Enums.CHARACTER_PROPERTY.CURRENT_HEALTH: {
-		"name": "Base health",
+		"name": "Current health",
 		"desc": "This is your character's current health. If this value reaches 0.0, your character is dead.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.CURRENT_ENERGY: {
+		"name": "Current energy",
+		"desc": "This is your character's current energy. If this value reaches 0.0, your character will black out from exhaustion and/or malnutrition.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.CURRENT_MAGIC: {
+		"name": "Current magic",
+		"desc": "This is your character's current magic. A connection to magic must be constructed and maintained or this value will deplete to 0.0 and you will be unable to use magic.",
 	},
 
 

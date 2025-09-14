@@ -43,18 +43,21 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 layout_mode = 2
 button_text = "Navigation"
+selectable = false
 button_group = "encyclopedia_nav"
 
 [node name="ItemsButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_envp8")]
 unique_name_in_owner = true
 layout_mode = 2
 button_text = "Items"
+selectable = false
 button_group = "encyclopedia_nav"
 
 [node name="EntitiesButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_envp8")]
 unique_name_in_owner = true
 layout_mode = 2
 button_text = "Entities"
+selectable = false
 button_group = "encyclopedia_nav"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]

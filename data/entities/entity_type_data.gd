@@ -28,8 +28,8 @@ var data = {
 
 
 	Enums.ENTITY_TYPE.UNIQUE: {
-		"name": "Null entity type",
-		"desc": "This entity type is nothing.",
+		"name": "Unqiue",
+		"desc": "Unique entities are one-of-a-kind beings.",
 	},
 
 

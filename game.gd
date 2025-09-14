@@ -9,14 +9,16 @@ var state:= Enums.GAME_STATE.NULL:
 
 
 func _ready() -> void:
-	%PausedLabel.visible = false
-	process_mode = Node.PROCESS_MODE_ALWAYS
+	Signals.ERROR_fatal.connect(_fatal_error)
 	Signals.GAME_state_changed.connect(_handle_new_game_state)
 	Signals.GAME_state_requested.connect(_handle_state_request)
+	%PausedLabel.visible = false
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 	var game_control = find_child("GameControl")
 	game_control.gui_input.connect(_handle_game_input)
 
+	CharacterHandler.new_character("Refrka")
 
 
 
@@ -30,13 +32,10 @@ func _unhandled_input(input: InputEvent) -> void:
 			Signals.GAME_state_requested.emit(Enums.GAME_STATE.PAUSE)
 		else:
 			Signals.GAME_state_requested.emit(Enums.GAME_STATE.PLAY)
-	
-	if input.is_action_pressed("deselect"):
-		Signals.GLOBAL_deselect.emit()
-	if input.is_action_pressed("control_panel_toggle"):
-		_toggle_control_panel()
 	if input.is_action_pressed("encyclopedia"):
 		_toggle_encyclopedia()
+	if input.is_action_pressed("profile"):
+		_toggle_profile()
 
 
 func _handle_game_input(input: InputEvent) -> void:
@@ -44,12 +43,14 @@ func _handle_game_input(input: InputEvent) -> void:
 		Signals.GLOBAL_deselect.emit()
 
 
-func _toggle_control_panel() -> void:
-	%ControlPanel.visible = !%ControlPanel.visible
-
-
 func _toggle_encyclopedia() -> void:
+	%Profile.visible = false
 	%Encyclopedia.visible = !%Encyclopedia.visible
+
+
+func _toggle_profile() -> void:
+	%Encyclopedia.visible = false
+	%Profile.visible = !%Profile.visible
 
 
 
@@ -75,3 +76,7 @@ func is_paused() -> bool:
 	if state == Enums.GAME_STATE.PAUSE:
 		paused = true
 	return paused
+
+
+func _fatal_error() -> void:
+	Signals.GAME_state_requested.emit(Enums.GAME_STATE.PAUSE)

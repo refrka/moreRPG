@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtng6lus8npgc"]
+
+[ext_resource type="Script" uid="uid://cvb2tq3o5hjs7" path="res://elements/HiddenButton.gd" id="1_hbkhk"]
+
+[node name="HiddenButton" type="PanelContainer" groups=["game_button", "hidden_button"]]
+theme_type_variation = &"HiddenButton"
+script = ExtResource("1_hbkhk")
+button_text = "Button text"
+
+[node name="HiddenButtonLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Button text"

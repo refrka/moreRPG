@@ -2,6 +2,7 @@ extends MarginContainer
 
 
 var message: String = "Alert message"
+var duration: float = 3.0
 
 
 func _ready() -> void:
@@ -10,8 +11,9 @@ func _ready() -> void:
 	modulate = Color(0.0,0.0,0.0,0.0)
 
 	%AnimationPlayer.play("fade_in")
-	await get_tree().create_timer(3.0).timeout
-	%AnimationPlayer.play("fade_out")
+	if duration > 0.0:
+		await get_tree().create_timer(duration).timeout
+		%AnimationPlayer.play("fade_out")
 	
 	
 

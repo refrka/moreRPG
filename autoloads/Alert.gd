@@ -13,3 +13,10 @@ func new_alert(message: String) -> void:
 	var alert = alert_scene.instantiate()
 	alert.message = message
 	game_control.add_child(alert)
+
+
+func new_fatal_alert(message: String) -> void:
+	var alert = alert_scene.instantiate()
+	alert.duration = 0.0
+	alert.message = message
+	Signals.ERROR_fatal.emit()

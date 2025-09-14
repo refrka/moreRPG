@@ -32,6 +32,8 @@ func _show_page(_page: Node) -> void:
 
 
 func _notification(what: int) -> void:
+	if !self.is_inside_tree():
+		return
 	if what == NOTIFICATION_VISIBILITY_CHANGED:
 		if visible == false:
 			reset()

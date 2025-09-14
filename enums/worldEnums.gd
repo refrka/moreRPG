@@ -3,9 +3,14 @@ class_name worldEnums extends Node
 
 enum Region {
 	NULL,
+	BARREN_SOUTH,
 	CAVE_SYSTEM,
 	COMMONLAND,
 	FOREST_NORTHERN,
+	GREATER_MOUNTAINS,
+	LONG_COAST,
+	MIRROR_LAKE,
+	RIVER_CRAGS,
 }
 
 

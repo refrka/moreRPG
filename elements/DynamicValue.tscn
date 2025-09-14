@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://caa3j04k2yafb"]
+
+[ext_resource type="Script" uid="uid://d0fja6de31lm7" path="res://elements/DynamicValue.gd" id="1_haq7g"]
+
+[node name="DynamicValue" type="RichTextLabel" groups=["dynamic_value"]]
+offset_right = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_type_variation = &"DynamicValue"
+text = "Value"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("1_haq7g")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true

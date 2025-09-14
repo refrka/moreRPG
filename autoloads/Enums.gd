@@ -57,13 +57,48 @@ var enum_list = {
 }
 
 
+func verify_crafting_enums() -> void:
+	var list = get_enum_list("crafting")
+	for enum_value in list:
+		if !Data.item_has_data(enum_value, Enums.ITEM_TYPE.CRAFTING):
+			Debug.log_fatal("Incomplete data set: Crafting items")
 
-func verify_enums() -> void:
-	var list = {}
-	for enum_name in enum_list:
-		list[enum_name] = []
-		for enum_value_name in enum_list[enum_name]:
-			list[enum_name].append(enum_value_name)
+func verify_equipment_enums() -> void:
+	var list = get_enum_list("equipment")
+	for enum_value in list:
+		if !Data.item_has_data(enum_value, Enums.ITEM_TYPE.EQUIPMENT):
+			Debug.log_fatal("Incomplete data set: Equipment items")
+
+func verify_potion_enums() -> void:
+	var list = get_enum_list("potion")
+	for enum_value in list:
+		if !Data.item_has_data(enum_value, Enums.ITEM_TYPE.POTION):
+			Debug.log_fatal("Incomplete data set: Potion items")
+
+func verify_provision_enums() -> void:
+	var list = get_enum_list("provision")
+	for enum_value in list:
+		if !Data.item_has_data(enum_value, Enums.ITEM_TYPE.PROVISION):
+			Debug.log_fatal("Incomplete data set: Provision items")
+
+func verify_tool_enums() -> void:
+	var list = get_enum_list("tool")
+	for enum_value in list:
+		if !Data.item_has_data(enum_value, Enums.ITEM_TYPE.TOOL):
+			Debug.log_fatal("Incomplete data set: Tool items")
+
+func verify_valuable_enums() -> void:
+	var list = get_enum_list("valuable")
+	for enum_value in list:
+		if !Data.item_has_data(enum_value, Enums.ITEM_TYPE.VALUABLE):
+			Debug.log_fatal("Incomplete data set: Valuable items")
+
+func verify_weapon_enums() -> void:
+	var list = get_enum_list("weapon")
+	for enum_value in list:
+		if !Data.item_has_data(enum_value, Enums.ITEM_TYPE.WEAPON):
+			Debug.log_fatal("Incomplete data set: Weapon items")
+
 
 
 func get_enum_value(enum_list_name: String, enum_value_name: String) -> int:

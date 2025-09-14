@@ -1,0 +1,200 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcjwipapox74m"]
+
+[ext_resource type="PackedScene" uid="uid://dtng6lus8npgc" path="res://elements/HiddenButton.tscn" id="1_5ryes"]
+[ext_resource type="Script" uid="uid://dxtkqn1yw2t4s" path="res://Profile.gd" id="1_gjt7c"]
+[ext_resource type="PackedScene" uid="uid://caa3j04k2yafb" path="res://elements/DynamicValue.tscn" id="2_1orhx"]
+
+[node name="Profile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_gjt7c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Character Profile"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_type_variation = &"MainPanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 5
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]Character Name[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="LevelButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+button_text = "Level:"
+button_group = "profile"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/LevelButton" index="0"]
+text = "Level:"
+
+[node name="Level" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "0
+"
+value_text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="HealthButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+button_text = "Health"
+button_group = "profile"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HealthButton" index="0"]
+text = "Health:"
+
+[node name="Health" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "25.0"
+value_text = "25.0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="EnergyButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+button_text = "Energy:"
+button_group = "profile"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3/EnergyButton" index="0"]
+text = "Energy:"
+
+[node name="Energy" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "10.0"
+value_text = "10.0"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="MagicButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+button_text = "Magic:"
+button_group = "profile"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4/MagicButton" index="0"]
+text = "Magic:"
+
+[node name="Magic" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "25.0"
+value_text = "0.0"
+
+[node name="DynamicValue" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+value_text = "0.5"
+
+[node name="PropertyInfo" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_type_variation = &"SubPanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="PropertyName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Property Name"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer"]
+layout_mode = 2
+
+[node name="PropertyDesc" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Description"
+autowrap_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_type_variation = &"MainPanel"
+
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/LevelButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HealthButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3/EnergyButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4/MagicButton"]

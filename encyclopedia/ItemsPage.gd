@@ -21,11 +21,8 @@ var type_lists = {
 }
 
 func _ready() -> void:
-	
 	load_item_types()
 	load_items()
-
-
 	%Reset.add_callback(reset_lists)
 
 
@@ -47,21 +44,113 @@ func load_item_types() -> void:
 		%ItemTypeList.add_child(button)
 
 
+func load_type_items(item_type_key: Enums.ITEM_TYPE) -> void:
+	for item_type in type_lists:
+		if item_type != item_type_key:
+			for item_key in type_lists[item_type]:
+				var button = type_lists[item_type][item_key]
+				button.visible = false
+		else:
+			for item_key in type_lists[item_type]:
+				var button = type_lists[item_type][item_key]
+				button.visible = true
+
+
+func load_item_type(data: Dictionary) -> void:
+	for item_type_key in item_type_list:
+		var button = item_type_list[item_type_key]
+		if item_type_key == data["type"]:
+			button.visible = true
+		else:
+			button.visible = false
+
+
 func load_items() -> void:
-	var all_item_list = []
-	var crafting_list = Enums.get_enum_list("crafting")
-	for crafting_name in crafting_list:
-		var enum_value = crafting_list[crafting_name]
-		var data = Data.get_item_data(enum_value, Enums.ITEM_TYPE.CRAFTING)
-		print(data)
+	var all_buttons_list = []
+	
+	var crafting_buttons = get_item_buttons(Enums.ITEM_TYPE.CRAFTING)
+	var equipment_buttons = get_item_buttons(Enums.ITEM_TYPE.EQUIPMENT)
+	var potion_buttons = get_item_buttons(Enums.ITEM_TYPE.POTION)
+	var provision_buttons = get_item_buttons(Enums.ITEM_TYPE.PROVISION)
+	var tool_buttons = get_item_buttons(Enums.ITEM_TYPE.TOOL)
+	var valuable_buttons = get_item_buttons(Enums.ITEM_TYPE.VALUABLE)
+	var weapon_buttons = get_item_buttons(Enums.ITEM_TYPE.WEAPON)
+
+
+
+	for button in crafting_buttons:
+		all_buttons_list.append(button)
+	for button in equipment_buttons:
+		all_buttons_list.append(button)
+	for button in potion_buttons:
+		all_buttons_list.append(button)
+	for button in provision_buttons:
+		all_buttons_list.append(button)
+	for button in tool_buttons:
+		all_buttons_list.append(button)
+	for button in valuable_buttons:
+		all_buttons_list.append(button)
+	for button in weapon_buttons:
+		all_buttons_list.append(button)
+
+	all_buttons_list.sort_custom(sort_alphabetical)
+	for button in all_buttons_list:
+		%ItemList.add_child(button)
+
+
+func sort_alphabetical(a, b) -> bool:
+	var a_name = a.button_text.to_lower()
+	var b_name = b.button_text.to_lower()
+	if a_name < b_name:
+		return true
+	else:
+		return false
+
+
+func get_item_buttons(item_type: Enums.ITEM_TYPE) -> Array:
+	var button_list = []
+	var enum_list = []
+	match item_type:
+		Enums.ITEM_TYPE.CRAFTING:
+			enum_list = Enums.get_enum_list("crafting")
+		Enums.ITEM_TYPE.EQUIPMENT:
+			enum_list = Enums.get_enum_list("equipment")
+		Enums.ITEM_TYPE.POTION:
+			enum_list = Enums.get_enum_list("potion")
+		Enums.ITEM_TYPE.PROVISION:
+			enum_list = Enums.get_enum_list("provision")
+		Enums.ITEM_TYPE.TOOL:
+			enum_list = Enums.get_enum_list("tool")
+		Enums.ITEM_TYPE.VALUABLE:
+			enum_list = Enums.get_enum_list("valuable")
+		Enums.ITEM_TYPE.WEAPON:
+			enum_list = Enums.get_enum_list("weapon")
+	for enum_name in enum_list:
+		var enum_value = enum_list[enum_name]
+		var data = Data.get_item_data(enum_value, item_type)
+		if Data.is_data_valid(data):
+			var button = ObjectHandler.new_game_button()
+			button.button_text = data["name"]
+			button.button_group = "item_list"
+			button.add_callback(update_item_info.bind(data))
+			button.add_callback(load_item_type.bind(data))
+			type_lists[item_type][enum_value] = button
+			button_list.append(button)
+	return button_list
+	
 
 func reset_lists() -> void:
-	pass
-
-
-func load_type_items(item_type_key: Enums.ITEM_TYPE) -> void:
-	pass
+	var game_buttons = ObjectHandler.get_group_buttons("item_list")
+	for button in game_buttons:
+		button.deselect()
+		button.visible = true
 
 
 func update_item_type_info(data: Dictionary) -> void:
-	pass
+	%Name.text = data["name"]
+	%Description.text = data["desc"]
+
+
+func update_item_info(data: Dictionary) -> void:
+	%Name.text = data["name"]
+	%Description.text = data["desc"]

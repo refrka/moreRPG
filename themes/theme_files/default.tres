@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dr5k60ip4u8yl"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dr5k60ip4u8yl"]
 
+[ext_resource type="FontFile" uid="uid://cxphqdmji2laq" path="res://resources/fonts/LibreBaskerville-Bold.ttf" id="1_6vkv8"]
 [ext_resource type="FontFile" uid="uid://cruyypthmbvi" path="res://resources/fonts/LibreBaskerville-Italic.ttf" id="1_aytt8"]
 [ext_resource type="FontFile" uid="uid://ditpj0fa07rd2" path="res://resources/fonts/LibreBaskerville-Regular.ttf" id="1_mq3k5"]
 
@@ -82,6 +83,18 @@ border_width_bottom = 1
 border_color = Color(0.686, 0.98, 0.98, 1)
 shadow_color = Color(0.611765, 1, 0.996078, 0.545098)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra1av"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.811765, 0.811765, 0.811765, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snf4b"]
 content_margin_left = 15.0
 content_margin_top = 15.0
@@ -103,6 +116,18 @@ border_width_bottom = 1
 border_color = Color(0.577008, 0.577008, 0.577008, 1)
 shadow_color = Color(0.753984, 0.753984, 0.753984, 0.6)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goqwl"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.498039, 0.498039, 0.498039, 1)
+
 [resource]
 default_font = ExtResource("1_mq3k5")
 default_font_size = 16
@@ -116,10 +141,15 @@ Button/styles/normal = SubResource("StyleBoxFlat_mq3k5")
 Button/styles/pressed = SubResource("StyleBoxFlat_enkh2")
 GameButton/base_type = &"PanelContainer"
 GameButton/styles/panel = SubResource("StyleBoxFlat_j65yo")
+HiddenButton/base_type = &"PanelContainer"
+HiddenButton/styles/panel = SubResource("StyleBoxFlat_ra1av")
 Label/colors/font_color = Color(0.745098, 0.745098, 0.745098, 1)
 MainPanel/base_type = &"PanelContainer"
 MainPanel/styles/panel = SubResource("StyleBoxFlat_snf4b")
 ObjectCardPanel/base_type = &"PanelContainer"
 ObjectCardPanel/styles/panel = SubResource("StyleBoxFlat_okosu")
 RichTextLabel/colors/default_color = Color(0.745098, 0.745098, 0.745098, 1)
+RichTextLabel/fonts/bold_font = ExtResource("1_6vkv8")
 RichTextLabel/fonts/italics_font = ExtResource("1_aytt8")
+SubPanel/base_type = &"PanelContainer"
+SubPanel/styles/panel = SubResource("StyleBoxFlat_goqwl")

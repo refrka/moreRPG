@@ -91,14 +91,11 @@ func update_location_info(data: Dictionary) -> void:
 
 
 func reset_lists() -> void:
-	var game_buttons = get_tree().get_nodes_in_group("game_button")
+	var game_buttons = ObjectHandler.get_group_buttons("navigation_list")
 	for button in game_buttons:
 		if button.button_group == "navigation_list":
 			button.deselect()
-	for location_key in location_list:
-		location_list[location_key].visible = true
-	for region_key in region_list:
-		region_list[region_key].visible = true
+			button.visible = true
 
 
 
