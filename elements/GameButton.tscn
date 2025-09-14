@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcff11uqo4f7s"]
+
+[ext_resource type="Script" uid="uid://1sgc2r4pyic4" path="res://elements/GameButton.gd" id="1_gcgku"]
+
+[node name="GameButton" type="PanelContainer" groups=["game_button"]]
+theme_type_variation = &"GameButton"
+script = ExtResource("1_gcgku")
+button_text = "Button text"
+
+[node name="GameButtonLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Button text"

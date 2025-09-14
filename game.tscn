@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx7atan1t3giy"]
+
+[ext_resource type="Script" uid="uid://bfumtsibkeld4" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://ytikmmmjv0et" path="res://Encyclopedia.tscn" id="2_e2o6t"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_80nbo")
+
+[node name="GameControl" type="Control" parent="." groups=["game_control"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="GameControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+
+[node name="PausedLabel" type="Label" parent="GameControl"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -97.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 38.5
+grow_horizontal = 0
+text = "PAUSED"
+
+[node name="Encyclopedia" parent="." instance=ExtResource("2_e2o6t")]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true

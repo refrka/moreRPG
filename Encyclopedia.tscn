@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://ytikmmmjv0et"]
+
+[ext_resource type="Script" uid="uid://3xq7jaulpy5o" path="res://Encyclopedia.gd" id="1_rfu68"]
+[ext_resource type="PackedScene" uid="uid://bcff11uqo4f7s" path="res://elements/GameButton.tscn" id="2_envp8"]
+[ext_resource type="PackedScene" uid="uid://cnue3fce7617r" path="res://encyclopedia/NavigationPage.tscn" id="3_w6rdo"]
+[ext_resource type="PackedScene" uid="uid://t1rh8cwtcfmv" path="res://encyclopedia/ItemsPage.tscn" id="4_ec2ag"]
+[ext_resource type="PackedScene" uid="uid://dapkd2vgkypr0" path="res://encyclopedia/EntitiesPage.tscn" id="5_vscmr"]
+
+[node name="Encyclopedia" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rfu68")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="NavigationButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_envp8")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Navigation"
+button_group = "encyclopedia_nav"
+
+[node name="ItemsButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_envp8")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Items"
+button_group = "encyclopedia_nav"
+
+[node name="EntitiesButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_envp8")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Entities"
+button_group = "encyclopedia_nav"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PageContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="NavigationPage" parent="MarginContainer/VBoxContainer/PageContainer" instance=ExtResource("3_w6rdo")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ItemsPage" parent="MarginContainer/VBoxContainer/PageContainer" instance=ExtResource("4_ec2ag")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="EntitiesPage" parent="MarginContainer/VBoxContainer/PageContainer" instance=ExtResource("5_vscmr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2

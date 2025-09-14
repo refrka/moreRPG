@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c254heomc1cj7"]
+
+[node name="Header" type="Label"]
+offset_right = 1.0
+offset_bottom = 20.0
+size_flags_horizontal = 0
+text = "Header"

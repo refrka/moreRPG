@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dapkd2vgkypr0"]
+
+[ext_resource type="Script" uid="uid://8g4g1jyc3087" path="res://encyclopedia/EntitiesPage.gd" id="1_rlbpu"]
+
+[node name="EntitiesPage" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_rlbpu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Entities"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2

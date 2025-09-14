@@ -1,0 +1,125 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dr5k60ip4u8yl"]
+
+[ext_resource type="FontFile" uid="uid://cruyypthmbvi" path="res://resources/fonts/LibreBaskerville-Italic.ttf" id="1_aytt8"]
+[ext_resource type="FontFile" uid="uid://ditpj0fa07rd2" path="res://resources/fonts/LibreBaskerville-Regular.ttf" id="1_mq3k5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1ctw"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vkv8"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mq3k5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aytt8"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.366595, 0.366595, 0.366594, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.481789, 0.48179, 0.481789, 1)
+shadow_color = Color(0.603922, 0.603922, 0.603922, 0.12549)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mq3k5"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.176419, 0.176419, 0.176419, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.481789, 0.48179, 0.481789, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enkh2"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.273873, 0.273873, 0.273873, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.481789, 0.48179, 0.481789, 1)
+shadow_color = Color(0.851769, 0.851769, 0.851769, 0.458824)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j65yo"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.262932, 0.262932, 0.262932, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.686, 0.98, 0.98, 1)
+shadow_color = Color(0.611765, 1, 0.996078, 0.545098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snf4b"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okosu"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.577008, 0.577008, 0.577008, 1)
+shadow_color = Color(0.753984, 0.753984, 0.753984, 0.6)
+
+[resource]
+default_font = ExtResource("1_mq3k5")
+default_font_size = 16
+AlertPanel/base_type = &"PanelContainer"
+AlertPanel/styles/panel = SubResource("StyleBoxFlat_d1ctw")
+Button/font_sizes/font_size = 16
+Button/styles/disabled = SubResource("StyleBoxFlat_6vkv8")
+Button/styles/focus = SubResource("StyleBoxEmpty_mq3k5")
+Button/styles/hover = SubResource("StyleBoxFlat_aytt8")
+Button/styles/normal = SubResource("StyleBoxFlat_mq3k5")
+Button/styles/pressed = SubResource("StyleBoxFlat_enkh2")
+GameButton/base_type = &"PanelContainer"
+GameButton/styles/panel = SubResource("StyleBoxFlat_j65yo")
+Label/colors/font_color = Color(0.745098, 0.745098, 0.745098, 1)
+MainPanel/base_type = &"PanelContainer"
+MainPanel/styles/panel = SubResource("StyleBoxFlat_snf4b")
+ObjectCardPanel/base_type = &"PanelContainer"
+ObjectCardPanel/styles/panel = SubResource("StyleBoxFlat_okosu")
+RichTextLabel/colors/default_color = Color(0.745098, 0.745098, 0.745098, 1)
+RichTextLabel/fonts/italics_font = ExtResource("1_aytt8")
