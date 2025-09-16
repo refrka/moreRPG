@@ -7,12 +7,14 @@ class_name HiddenButton extends PanelContainer
 			_connect_hover_signals()
 		else:
 			_disconnect_hover_signals()
+		hoverable = value
 @export var clickable:= true:
 	set(value):
 		if value == true:
 			_connect_click_signal()
 		else:
 			_disconnect_click_signal()
+		clickable = value
 
 
 @export var selectable:= true
@@ -96,9 +98,8 @@ func _hover(state: bool) -> void:
 	if selected:
 		return
 	if state == true:
-		shadow_size = 5
-		shadow_color = Color.html("#cfcfcf59")
-		bg_color = Color.html("#434343")
+		shadow_size = 2
+		shadow_color = Color.html("#cfcfcf22")
 		font_color = Color.WHITE
 	else:
 		remove_theme_stylebox_override("panel")
@@ -122,9 +123,9 @@ func select() -> void:
 			if !multiselect:
 				button.deselect()
 	selected = true
-	shadow_size = 5
-	shadow_color = Color.html("#9cfffe8b")
-	border_color = Color.html("#affafa")
+	shadow_size = 2
+	shadow_color = Color.html("#ebebeb8b")
+	border_color = Color.html("#828282ff")
 	font_color = Color.WHITE
 
 

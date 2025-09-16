@@ -54,6 +54,11 @@ var font_color: Color:
 			%GameButtonLabel.add_theme_color_override("font_color", value)
 		font_color = value
 
+var alignment: HorizontalAlignment:
+	set(value):
+		if is_instance_valid(%GameButtonLabel):
+			%GameButtonLabel.horizontal_alignment = value
+		alignment = value
 
 
 
@@ -63,7 +68,8 @@ var font_color: Color:
 func _ready() -> void:
 	Signals.GLOBAL_deselect.connect(deselect)
 	_hover(false)
-	%GameButtonLabel.text = button_text
+	if is_instance_valid(%GameButtonLabel):
+		%GameButtonLabel.text = button_text
 	if hoverable:
 		_connect_hover_signals()
 	if clickable:
@@ -124,6 +130,7 @@ func _click(input: InputEvent) -> void:
 
 
 
+
 func select() -> void:
 	var game_buttons = get_tree().get_nodes_in_group("game_button")
 	for button in game_buttons:
@@ -138,12 +145,18 @@ func select() -> void:
 
 
 
+
+
+
 func deselect() -> void:
 	selected = false
 	shadow_size = 0
 	border_color = Color.html("#626262")
 	font_color = Color.html("#bebebe")
 	bg_color = Color.html("#2d2d2d")
+
+
+
 
 
 func get_group_buttons() -> Array:
@@ -155,8 +168,38 @@ func get_group_buttons() -> Array:
 	return group_buttons
 
 
+
+
+
 func add_callback(callback: Callable) -> void:
 	callbacks.append(callback)
+
+
+
+
+
+
+func clear_callbacks() -> void:
+	callbacks.clear()
+
+
+
+
+
+func update_button(new_text: String) -> void:
+	reset()
+	button_text = new_text
+	%GameButtonLabel.text = new_text
+
+
+
+
+
+func reset() -> void:
+	callbacks.clear()
+	button_text = "Button text"
+	%GameButtonLabel.text = "Button text"
+
 
 
 
@@ -164,3 +207,6 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_VISIBILITY_CHANGED:
 		if visible == false:
 			deselect()
+
+
+		

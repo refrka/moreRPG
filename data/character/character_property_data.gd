@@ -22,57 +22,105 @@ var data = {
 	},
 
 
+	Enums.CHARACTER_PROPERTY.HEALTH: {
+		"name": "Health",
+		"desc": "Your character's health represents the overall state of your physical and mental wellbeing. If this number reaches 0.0, you are dead.",
+	},
+
+
 	Enums.CHARACTER_PROPERTY.MAX_HEALTH: {
 		"name": "Maximum health",
-		"desc": "This is your character's maximum health. It can be affected by a variety of factors.",
+		"desc": "This is your character's maximum health, the highest value current health can reach when increased.",
 	},
 
 
 	Enums.CHARACTER_PROPERTY.CURRENT_HEALTH: {
 		"name": "Current health",
-		"desc": "This is your character's current health. If this value reaches 0.0, your character is dead.",
+		"desc": "Your character's current health is the active health value at that moment.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.ENERGY: {
+		"name": "Energy",
+		"desc": "Energy is used when performing various actions like travel or combat. It is replenished by resting/sleeping or by magical means. If this reaches 0.0, you will fall unconscious from exhaustion and/or malnutrition.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.MAX_ENERGY: {
+		"name": "Max energy",
+		"desc": "This is your character's maximum energy, the highest value current energy can reach when increased.",
 	},
 
 
 	Enums.CHARACTER_PROPERTY.CURRENT_ENERGY: {
 		"name": "Current energy",
-		"desc": "This is your character's current energy. If this value reaches 0.0, your character will black out from exhaustion and/or malnutrition.",
+		"desc": "This is your character's available energy. When this is used, you must replenish it through rest or magic in order to continue on your journey.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.MAGIC: {
+		"name": "Magic",
+		"desc": "Magic is the resource required to channel the forces of the other realms. This value degrades over time unless maintained and grows when the connection is nourished. If this reaches 0.0, you will be unable to use magic or magical items.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.MAX_MAGIC: {
+		"name": "Max magic",
+		"desc": "This is your character's maximum magic, the highest value current magic can reach when increased.",
 	},
 
 
 	Enums.CHARACTER_PROPERTY.CURRENT_MAGIC: {
 		"name": "Current magic",
-		"desc": "This is your character's current magic. A connection to magic must be constructed and maintained or this value will deplete to 0.0 and you will be unable to use magic.",
+		"desc": "This is your character's current, available magic. Some actions deplete this value, others may only require a minimum value.",
 	},
 
 
-	Enums.CHARACTER_PROPERTY.BASE_MIGHT: {
-		"name": "Base might",
-		"desc": "This is your character's base might, affected by level. Might is the measure of your strength, endurance, and overall physical fitness. If this value reaches 0.0, your character will be unable to move or breathe and will die.",
+	Enums.CHARACTER_PROPERTY.MIGHT: {
+		"name": "Might",
+		"desc": "Might is the measure of your strength, endurance, and overall physical fitness. If this value reaches 0.0, your character will be unable to move or breathe and will die.",
 	},
 
 
-	Enums.CHARACTER_PROPERTY.BASE_AGILITY: {
-		"name": "Base agilty",
-		"desc": "This is your character's base agility, affected by level. Agility is the measure of your reaction timing, balance, and overall dexterity. If this value reaches 0.0, your character will be unable to move or breathe and will die.",
+	Enums.CHARACTER_PROPERTY.AGILITY: {
+		"name": "Agilty",
+		"desc": "Agility is the measure of your reaction timing, balance, and overall dexterity. If this value reaches 0.0, your character will be unable to move or breathe and will die.",
 	},
 
 
-	Enums.CHARACTER_PROPERTY.BASE_WITS: {
-		"name": "Base wits",
-		"desc": "This is your character's base wits, affected by level. Wits is the measure of your overall mental capacity. This stat is critical for use of Magic. If this value reaches 0.0, your character will be unable to move or breathe and will die.",
+	Enums.CHARACTER_PROPERTY.WITS: {
+		"name": "Wits",
+		"desc": "Wits is the measure of your overall mental capacity. This stat is critical for use of Magic. If this value reaches 0.0, your character will be unable to move or breathe and will die.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.ATTACK: {
+		"name": "Attack",
+		"desc": "Attack is the measure of your ability to overcome defenses.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.DEFENSE: {
+		"name": "Defense",
+		"desc": "Defense is the measure of your ability to withstand attacks.",
 	},
 
 
 	Enums.CHARACTER_PROPERTY.BASE_ATTACK: {
 		"name": "Base attack",
-		"desc": "This is your character's base attac value, affected by Level. Attack is the measure of your ability to overcome a Defense.",
+		"desc": "Your character's base attack, before any modifiers are applied.",
 	},
 
 
 	Enums.CHARACTER_PROPERTY.BASE_DEFENSE: {
 		"name": "Base defense",
-		"desc": "This is your character's base defense value, affected by Level. Defense is the measure of your ability to withstand an Attack.",
+		"desc": "Your character's base defense, before any modifiers are applied.",
+	},
+
+
+	Enums.CHARACTER_PROPERTY.CARRY_WEIGHT: {
+		"name": "Carry weight",
+		"desc": "The weight of your posessions - all the items in your inventory. If you exceed your maxmium carry capacity you will spend energy quicker and achieve less when performing some actions.",
 	},
 
 

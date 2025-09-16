@@ -7,6 +7,12 @@ func _ready() -> void:
 
 
 signal CHARACTER_created
+signal CHARACTER_equipment_updated(slots: Array)
+signal CHARACTER_item_added_to_inventory(item: Item)
+signal CHARACTER_item_removed_from_inventory(item: Item)
+signal CHARACTER_modifiers_updated(new_modifier: Modifier)
+signal CHARACTER_overburdened
+signal CHARACTER_property_updated(property: Enums.CHARACTER_PROPERTY)
 
 
 signal DYNAMIC_VALUE_changed(dynamic_value: DynamicValue, old_value: Variant)

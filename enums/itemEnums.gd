@@ -25,8 +25,13 @@ enum CraftingItem {
 enum EquipmentItem {
 	NULL,
 	ANCIENT_AMULET,
+	ARMOR_LEATHER,
 	BOOTS_LEATHER,
+	BRACERS_BONE,
+	CLOAK_PATCHED,
+	GREAVES_LEATHER,
 	HELMET_LEATHER,
+	VEST_CLOTH,
 }
 
 enum PotionItem {

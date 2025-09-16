@@ -15,6 +15,7 @@ func _ready() -> void:
 	region_data = Data.get_data_set("region_data")
 	location_data = Data.get_data_set("location_data")
 
+	clear_info()
 	load_regions()
 	load_locations()
 	
@@ -96,6 +97,12 @@ func reset_lists() -> void:
 		if button.button_group == "navigation_list":
 			button.deselect()
 			button.visible = true
+
+
+
+func clear_info() -> void:
+	%Name.text = ""
+	%Description.text = ""
 
 
 

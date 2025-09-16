@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcjwipapox74m"]
+[gd_scene load_steps=5 format=3 uid="uid://bcjwipapox74m"]
 
 [ext_resource type="PackedScene" uid="uid://dtng6lus8npgc" path="res://elements/HiddenButton.tscn" id="1_5ryes"]
 [ext_resource type="Script" uid="uid://dxtkqn1yw2t4s" path="res://Profile.gd" id="1_gjt7c"]
 [ext_resource type="PackedScene" uid="uid://caa3j04k2yafb" path="res://elements/DynamicValue.tscn" id="2_1orhx"]
+[ext_resource type="PackedScene" uid="uid://bcff11uqo4f7s" path="res://elements/GameButton.tscn" id="4_0himf"]
 
 [node name="Profile" type="Control"]
 layout_mode = 3
@@ -31,10 +32,6 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Character Profile"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -107,10 +104,26 @@ button_group = "profile"
 [node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HealthButton" index="0"]
 text = "Health:"
 
-[node name="Health" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_1orhx")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Health" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("2_1orhx")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
+text = "25.0"
+horizontal_alignment = 2
+value_text = "25.0"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="MaxHealth" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_horizontal = 1
 text = "25.0"
 value_text = "25.0"
 
@@ -122,17 +135,32 @@ theme_override_constants/separation = 10
 [node name="EnergyButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_5ryes")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
 button_text = "Energy:"
 button_group = "profile"
 
 [node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3/EnergyButton" index="0"]
 text = "Energy:"
 
-[node name="Energy" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_1orhx")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Energy" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer" instance=ExtResource("2_1orhx")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 3
+text = "10.0"
+horizontal_alignment = 2
+value_text = "10.0"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+
+[node name="MaxEnergy" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
 text = "10.0"
 value_text = "10.0"
 
@@ -151,20 +179,590 @@ button_group = "profile"
 [node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4/MagicButton" index="0"]
 text = "Magic:"
 
-[node name="Magic" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("2_1orhx")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Magic" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4/HBoxContainer" instance=ExtResource("2_1orhx")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
-text = "25.0"
+size_flags_horizontal = 1
+text = "0.0"
+horizontal_alignment = 2
 value_text = "0.0"
 
-[node name="DynamicValue" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_1orhx")]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+
+[node name="MaxMagic" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "0.0"
+value_text = "0.0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MightButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_5ryes")]
 unique_name_in_owner = true
 layout_mode = 2
-value_text = "0.5"
+button_text = "Might"
+button_group = "profile"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MightButton" index="0"]
+text = "Might"
+
+[node name="Might" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1.0"
+value_text = "1.0"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="AgilityButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Agility"
+button_group = "profile"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/AgilityButton" index="0"]
+text = "Agility"
+
+[node name="Agility" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1.0"
+value_text = "1.0"
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="WitsButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Wits"
+button_group = "profile"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/WitsButton" index="0"]
+text = "Wits"
+
+[node name="Wits" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1.0"
+value_text = "1.0"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Equipment"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 0
+
+[node name="WeaponPrimary" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponPrimaryButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponPrimary" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Wpn (p)"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponPrimary/WeaponPrimaryButton" index="0"]
+text = "Wpn (p)"
+
+[node name="WeaponPrimarySlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponPrimary"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="WeaponPrimaryEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponPrimary"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator11" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponSecondary" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WeaponSecondaryButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponSecondary" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Wpn (s)"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponSecondary/WeaponSecondaryButton" index="0"]
+text = "Wpn (s)"
+
+[node name="WeaponSecondarySlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponSecondary"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="WeaponSecondaryEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponSecondary"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Back"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back/BackButton" index="0"]
+text = "Back"
+
+[node name="BackSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="BackEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator12" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Head" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HeadButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Head" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Head"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Head/HeadButton" index="0"]
+text = "Head"
+
+[node name="HeadSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Head"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="HeadEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Head"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Neck" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NeckButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Neck" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Neck"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Neck/NeckButton" index="0"]
+text = "Neck"
+
+[node name="NeckSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Neck"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="NeckEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Neck"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Torso" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TorsoButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Torso" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Torso"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Torso/TorsoButton" index="0"]
+text = "Torso"
+
+[node name="TorsoSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Torso"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="TorsoEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Torso"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Arms" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ArmsButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Arms" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Arms"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Arms/ArmsButton" index="0"]
+text = "Arms"
+
+[node name="ArmsSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Arms"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="ArmsEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Arms"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Hands" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HandsButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Hands" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Hands"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Hands/HandsButton" index="0"]
+text = "Hands"
+
+[node name="HandsSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Hands"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="HandsEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Hands"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator6" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Legs" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LegsButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Legs" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Legs"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Legs/LegsButton" index="0"]
+text = "Legs"
+
+[node name="LegsSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Legs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="LegsEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Legs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator7" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Feet" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FeetButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Feet" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Feet"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Feet/FeetButton" index="0"]
+text = "Feet"
+
+[node name="FeetSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Feet"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="FeetEdit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Feet"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator8" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ring1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ring1Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring1" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Ring 1"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring1/Ring1Button" index="0"]
+text = "Ring 1"
+
+[node name="Ring1Slot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="Ring1Edit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator9" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ring2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ring2Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring2" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+button_text = "Ring 2"
+hoverable = false
+clickable = false
+selectable = false
+button_group = "profile_equipment"
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring2/Ring2Button" index="0"]
+text = "Ring 2"
+
+[node name="Ring2Slot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_stretch_ratio = 0.6
+
+[node name="Ring2Edit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Edit"
+
+[node name="HSeparator10" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="SlotName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Slot Name"
+horizontal_alignment = 1
+
+[node name="SlotDesc" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="CurrentlyEquipped" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/CurrentlyEquipped"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/italics_font_size = 14
+bbcode_enabled = true
+text = "[i]Equipped:[/i]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CurrentlyEquippedButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/CurrentlyEquipped" instance=ExtResource("4_0himf")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selectable = false
+button_group = "profile_item"
+
+[node name="GameButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/CurrentlyEquipped/CurrentlyEquippedButton" index="0"]
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="EquipmentList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="PropertyInfo" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(300, 145)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -177,16 +775,34 @@ theme_override_constants/separation = 5
 [node name="PropertyName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 14
 text = "Property Name"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer"]
 layout_mode = 2
 
-[node name="PropertyDesc" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer"]
+[node name="DescScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer/DescScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PropertyDesc" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer/DescScroll/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 14
 text = "Description"
 autowrap_mode = 3
+
+[node name="PropertyModifierList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/PropertyInfo/VBoxContainer/DescScroll/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -194,7 +810,211 @@ size_flags_horizontal = 3
 mouse_filter = 2
 theme_type_variation = &"MainPanel"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Inventory"
+
+[node name="ResetInventory" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("4_0himf")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Reset"
+selectable = false
+
+[node name="GameButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/ResetInventory" index="0"]
+theme_override_font_sizes/font_size = 14
+text = "Reset"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 5
+
+[node name="CarryWeightButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("1_5ryes")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Carry weight"
+selectable = false
+
+[node name="HiddenButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/HBoxContainer/CarryWeightButton" index="0"]
+text = "Carry weight:"
+
+[node name="CarryWeight" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.0"
+value_text = "0.0"
+flip_color = true
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="CarryCapacity" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("2_1orhx")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100.0"
+value_text = "100.0"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Item Types"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ItemTypeList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ItemList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+mouse_filter = 2
+theme_type_variation = &"SubPanel"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemName" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Item Name[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemDesc" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Item description"
+autowrap_mode = 3
+
+[node name="ItemActions" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 10
+
+[node name="UseButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions" instance=ExtResource("4_0himf")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Use"
+selectable = false
+
+[node name="GameButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/UseButton" index="0"]
+text = "Use"
+
+[node name="EquipButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions" instance=ExtResource("4_0himf")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Equip"
+selectable = false
+
+[node name="GameButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/EquipButton" index="0"]
+text = "Equip"
+
+[node name="UnequipButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions" instance=ExtResource("4_0himf")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Unequip"
+selectable = false
+
+[node name="GameButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/UnequipButton" index="0"]
+text = "Unequip"
+
+[node name="DiscardButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions" instance=ExtResource("4_0himf")]
+unique_name_in_owner = true
+layout_mode = 2
+button_text = "Discard"
+selectable = false
+
+[node name="GameButtonLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/DiscardButton" index="0"]
+text = "Discard"
+
 [editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/LevelButton"]
 [editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HealthButton"]
 [editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer3/EnergyButton"]
 [editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer4/MagicButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MightButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/AgilityButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/WitsButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponPrimary/WeaponPrimaryButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeaponSecondary/WeaponSecondaryButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back/BackButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Head/HeadButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Neck/NeckButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Torso/TorsoButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Arms/ArmsButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Hands/HandsButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Legs/LegsButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Feet/FeetButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring1/Ring1Button"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Ring2/Ring2Button"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/CurrentlyEquipped/CurrentlyEquippedButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/ResetInventory"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/HBoxContainer/CarryWeightButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/UseButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/EquipButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/UnequipButton"]
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/ItemActions/DiscardButton"]

@@ -4,7 +4,7 @@ extends Node
 var object_data = "res://data/system/object_data.gd"
 
 var character_property_data = "res://data/character/character_property_data.gd"
-
+var equip_slot_data = "res://data/character/equip_slot_data.gd"
 
 var item_type_data = "res://data/items/item_type_data.gd"
 var crafting_item_data = "res://data/items/crafting_item_data.gd"
@@ -59,6 +59,14 @@ func get_region_data(region_key: Enums.REGION) -> Dictionary:
 func get_location_data(location_key: Enums.LOCATION) -> Dictionary:
 	var location_data_set = get_data_set("location_data")
 	return location_data_set[location_key]
+
+
+
+
+
+
+
+
 
 
 

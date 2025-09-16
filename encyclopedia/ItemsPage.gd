@@ -21,6 +21,7 @@ var type_lists = {
 }
 
 func _ready() -> void:
+	clear_info()
 	load_item_types()
 	load_items()
 	%Reset.add_callback(reset_lists)
@@ -146,11 +147,34 @@ func reset_lists() -> void:
 		button.visible = true
 
 
+
+func clear_info() -> void:
+	%Name.text = ""
+	%Description.text = ""
+	%EquipSlot.visible = false
+
+
+
 func update_item_type_info(data: Dictionary) -> void:
+	clear_info()
 	%Name.text = data["name"]
 	%Description.text = data["desc"]
 
 
 func update_item_info(data: Dictionary) -> void:
+	clear_info()
 	%Name.text = data["name"]
 	%Description.text = data["desc"]
+	if data["type"] == Enums.ITEM_TYPE.EQUIPMENT or data["type"] == Enums.ITEM_TYPE.WEAPON:
+		var equip_slot_data = Data.get_data_set("equip_slot_data")
+		var slot_string: String
+		for slot in data["slots"]:
+			var slot_data = equip_slot_data[slot]
+			var index = data["slots"].find(slot)
+			if index == data["slots"].size() - 1:
+				slot_string += slot_data["name"]
+			else:
+				slot_string += "%s, " % slot_data["name"]
+		%EquipSlot.visible = true
+		%EquipSlotName.text = slot_string
+	%Weight.text = str(data["weight"])

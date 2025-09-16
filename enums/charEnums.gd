@@ -1,19 +1,66 @@
 class_name charEnums extends Node
 
 
+enum Action {
+	NULL,
+	ATTACK,
+	CONVERSE,
+	EQUIP,
+	EXPLORE,
+	SEARCH,
+	USE,
+}
+
+
+
+enum Modifier {
+	NULL,
+	EQUIP,
+	TEMPORARY,
+	PERMANENT,
+}
+
+
+
 enum CharacterProperty {
 	NULL,
 	MODIFIER,
 	LEVEL,
+	HEALTH,
 	MAX_HEALTH,
 	CURRENT_HEALTH,
+	ENERGY,
+	MAX_ENERGY,
 	CURRENT_ENERGY,
+	MAGIC,
+	MAX_MAGIC,
 	CURRENT_MAGIC,
+	MIGHT,
+	AGILITY,
+	WITS,
 	BASE_MIGHT,
 	BASE_AGILITY,
 	BASE_WITS,
+	ATTACK,
+	DEFENSE,
 	BASE_ATTACK,
 	BASE_DEFENSE,
+	CARRY_WEIGHT,
 }
 
 
+enum EquipSlot {
+	NULL,
+	WEAPON_PRIMARY,
+	WEAPON_SECONDARY,
+	BACK,
+	HEAD,
+	NECK,
+	TORSO,
+	ARMS,
+	HANDS,
+	LEGS,
+	FEET,
+	RING_1,
+	RING_2,
+}

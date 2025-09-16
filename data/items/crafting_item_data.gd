@@ -7,6 +7,7 @@ var data = {
 		"name": "Null crafting item",
 		"desc": "This crafting item is nothing",
 		"type": Enums.ITEM_TYPE.CRAFTING,
+		"weight": 0.0,
 	},
 
 
@@ -14,6 +15,7 @@ var data = {
 		"name": "Cloth strip",
 		"desc": "A strip of cloth, torn at the ends.",
 		"type": Enums.ITEM_TYPE.CRAFTING,
+		"weight": 0.01,
 	},
 
 
@@ -21,6 +23,7 @@ var data = {
 		"name": "Metal shard",
 		"desc": "A shard of twisted metal. It can be shaped with the right tools.",
 		"type": Enums.ITEM_TYPE.CRAFTING,
+		"weight": 0.1,
 	},
 
 
@@ -28,6 +31,7 @@ var data = {
 		"name": "Stick",
 		"desc": "A good stick. Good for crafting various things or just swishing about.",
 		"type": Enums.ITEM_TYPE.CRAFTING,
+		"weight": 0.3,
 	},
 
 

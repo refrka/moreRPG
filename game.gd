@@ -21,7 +21,8 @@ func _ready() -> void:
 	CharacterHandler.new_character("Refrka")
 
 
-
+	await get_tree().create_timer(5.0).timeout
+	CharacterHandler.add_new_item_to_inventory(Enums.WEAPON.DAGGER_IRON, Enums.ITEM_TYPE.WEAPON)
 
 
 

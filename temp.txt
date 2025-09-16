@@ -1,0 +1,95 @@
+CRAFTING (raw mats, components, alchemy junk)
+iron ore
+rough stone
+sturdy wood
+monster hide
+bone splinters
+resin clump
+saltpeter
+copper wire
+glass shard
+bundle of reeds
+spider silk
+lump of clay
+beeswax
+dried herbs
+charcoal
+
+EQUIPMENT (wearables, passive stat/ability enhancers)
+leather boots
+chainmail shirt
+padded gloves
+iron helm
+woolen scarf
+bronze ring
+engraved amulet
+traveling cloak
+belt with pouches
+bone charm
+plated gauntlets
+scale greaves
+
+POTION (prepared, bottled stuff — not “food”)
+minor healing draught
+mana tincture
+stamina elixir
+antidote vial
+invisibility phial
+fire resistance tonic
+frostbite salve
+bottled courage (fear resist)
+quicksilver infusion (speed buff)
+stoneflesh serum (defense buff)
+
+PROVISION (eat/drink stuff, everyday survival items)
+hardtack biscuit
+smoked fish
+dried berries
+loaf of black bread
+flask of water
+jug of ale
+salted jerky
+pickled vegetables
+roasted nuts
+honeycomb piece
+wedge of cheese
+
+TOOL (non-combat utility items)
+pickaxe
+rope coil
+whetstone
+hammer & nails
+lantern
+tinderbox
+lockpicks
+fishing rod
+compass
+shovel
+sewing kit
+chisel
+
+VALUABLE (money-adjacent, trade goods, shiny things)
+silver coin pouch
+gold ingot
+polished gemstone
+pearl necklace
+antique brooch
+ivory carving
+brass pocketwatch
+rare book
+silk bolt
+ceremonial goblet
+jade figurine
+
+WEAPON (direct combat items, not tools)
+iron sword
+wooden club
+hunting knife
+steel spear
+warhammer
+shortbow
+crossbow
+spiked mace
+halberd
+throwing axe
+sling with stones

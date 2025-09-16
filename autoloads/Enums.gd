@@ -8,6 +8,9 @@ const GAME_STATE = sysEnums.GameState
 const GAME_OBJECT = sysEnums.GameObject
 
 const CHARACTER_PROPERTY = charEnums.CharacterProperty
+const ACTION = charEnums.Action
+const MODIFIER = charEnums.Modifier
+const EQUIP_SLOT = charEnums.EquipSlot
 
 const ITEM_TYPE = itemEnums.ItemType
 const NULL_ITEM = itemEnums.NullItem
@@ -36,6 +39,8 @@ var enum_list = {
 	"game_object": GAME_OBJECT,
 
 	"character_property": CHARACTER_PROPERTY,
+	"action_data": ACTION,
+	"equip_slot": EQUIP_SLOT,
 
 	"item_type": ITEM_TYPE,
 	"crafting": CRAFTING,

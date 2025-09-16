@@ -25,6 +25,7 @@ enum ValueType {
 		else:
 			DynamicValueHandler.unmonitor_value(self)
 var value_type: ValueType
+@export var flip_color:= false
 
 
 
@@ -59,10 +60,9 @@ func get_typed_value() -> Variant:
 
 
 func update_value(new_value: Variant) -> void:
-	print(new_value)
 	var type = typeof(new_value) as ValueType
 	if type != value_type:
-		print("wrong type")
+		Debug.log_error("Invalid type assignment to Dynamic Value: %s" % self.name)
 	else:
 		value_text = str(new_value)
 

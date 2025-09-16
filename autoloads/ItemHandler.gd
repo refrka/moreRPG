@@ -34,3 +34,10 @@ func get_all_item_list() -> Dictionary:
 	list[Enums.ITEM_TYPE.VALUABLE] = Enums.get_enum_list("valuable")
 	list[Enums.ITEM_TYPE.WEAPON] = Enums.get_enum_list("weapon")
 	return list
+
+
+func sort_alphabetical(item_a: Item, item_b: Item) -> bool:
+	if item_a.item_data["name"] < item_b.item_data["name"]:
+		return true
+	else:
+		return false

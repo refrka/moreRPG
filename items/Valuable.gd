@@ -1,4 +1,6 @@
 class_name Valuable extends Item
 
 func _init(_key: Enums.VALUABLE) -> void:
-	pass
+	super(Enums.ITEM_TYPE.VALUABLE)
+	object_key = _key
+	get_data()

@@ -72,10 +72,10 @@ mouse_filter = 2
 [node name="NavigationPage" parent="MarginContainer/VBoxContainer/PageContainer" instance=ExtResource("3_w6rdo")]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 1
 
 [node name="ItemsPage" parent="MarginContainer/VBoxContainer/PageContainer" instance=ExtResource("4_ec2ag")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="EntitiesPage" parent="MarginContainer/VBoxContainer/PageContainer" instance=ExtResource("5_vscmr")]

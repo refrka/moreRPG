@@ -16,6 +16,7 @@ var type_lists = {
 
 
 func _ready() -> void:
+	clear_info()
 	load_entity_types()
 	load_entities()
 	%Reset.add_callback(reset_lists)
@@ -127,3 +128,8 @@ func reset_lists() -> void:
 	for button in game_buttons:
 		button.deselect()
 		button.visible = true
+
+
+func clear_info() -> void:
+	%Name.text = ""
+	%Description.text = ""
